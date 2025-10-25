@@ -31,7 +31,7 @@ jobs:
       uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 # v3.9.2
 
     - name: Install Syft
-      uses: anchore/sbom-action/download-syft@aa0e114b2e19480f157109b9922bda359bd98b90 # v0.20.8
+      uses: anchore/sbom-action/download-syft@8e94d75ddd33f69f691467e42275782e4bfefe84 # v0.20.9
 
     - name: Log in to ghcr
       uses: redhat-actions/podman-login@4934294ad0449894bcd1e9f191899d7292469603 # v1
