@@ -31,8 +31,6 @@ spec:
     value: "true"
   - name: build-source-image
     value: "true"
-  pipelineRef:
-    name: build
   pipelineSpec:
     description: |
       This pipeline is ideal for building container images from a Containerfile while maintaining trust after pipeline customization.
