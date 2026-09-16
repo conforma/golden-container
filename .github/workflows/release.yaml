@@ -87,7 +87,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Validate image
-        uses: conforma/action-validate-image@f5db4ae4bf61a561e12bb0b69c4f464122acfab2 # v1.0.425
+        uses: conforma/action-validate-image@99e9f2038b896b7921d3f238835ddeed7cf8500b # v1.0.426
         with:
           image: ${{ needs.build.outputs.image }}@${{ needs.build.outputs.digest }}
           identity: https:\/\/github\.com\/(slsa-framework\/slsa-github-generator|${{ github.repository_owner }}\/${{ github.event.repository.name }})\/
