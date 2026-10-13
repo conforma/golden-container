@@ -12,6 +12,7 @@ env:
 
 jobs:
   build:
+    if: github.repository == 'conforma/golden-container'
     runs-on: ubuntu-latest
 
     permissions:
@@ -70,6 +71,7 @@ jobs:
 
   provenance:
     needs: [build]
+    if: github.repository == 'conforma/golden-container'
     permissions:
       actions: read # for detecting the Github Actions environment.
       id-token: write # for creating OIDC tokens for signing.
@@ -84,6 +86,7 @@ jobs:
 
   validate:
     needs: [provenance, build]
+    if: github.repository == 'conforma/golden-container'
     runs-on: ubuntu-latest
     steps:
       - name: Validate image
@@ -94,6 +97,7 @@ jobs:
           issuer: https://token.actions.githubusercontent.com
     
   promote:
+    if: github.repository == 'conforma/golden-container'
     runs-on: ubuntu-latest
     needs: [validate, build]
     steps:  
@@ -103,4 +107,3 @@ jobs:
           --dest-creds=${{ github.actor }}:${{ github.token }} \
           docker://${{ needs.build.outputs.image }}@${{ needs.build.outputs.digest }} \
           docker://${{ needs.build.outputs.image }}:latest
-  
